@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图表</title>
+    <script src="../js/echarts.js"></script>
+    <!-- <script src="js/jQuery.mini.js"></script> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+        }
+        
+        .dahezi {
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 1200px;
+            overflow: hidden;
+        }
+        
+        .box {
+            float: left;
+            width: 393px;
+            height: 400px;
+            background-color: #fff;
+        }
+        
+        .box2 {
+            float: left;
+            margin-left: 10px;
+            width: 393px;
+            height: 400px;
+            background-color: #fff;
+            box-sizing: border-box;
+            padding-bottom: 60px;
+        }
+        
+        .box3 {
+            float: left;
+            margin-left: 10px;
+            width: 393px;
+            height: 400px;
+            background-color: #fff;
+        }
+        
+        .box4 {
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 90px;
+            width: 1200px!important;
+            height: 600px;
+            width: 388px;
+            height: 400px;
+            background-color: #fff;
+        }
+        
+        .box5 {
+            margin: 0 auto;
+            margin-top: 10px;
+            width: 1200px!important;
+            height: 600px;
+            width: 388px;
+            height: 400px;
+            background-color: #fff;
+        }
+        
+        .box6 {
+            margin: 0 auto;
+            margin-top: 10px;
+            width: 1200px!important;
+            height: 600px;
+            width: 388px;
+            height: 400px;
+            background-color: #fff;
+        }
+        
+        .bt {
+            display: block;
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 300px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 28px;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+            background-color: rgb(51, 51, 255);
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- <div class="bt">上海新冠确诊数据</div> -->
+    <div class="dahezi">
+        <div class="box"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    <div class="box6"></div>
+    <div class="box5"></div>
+    <div class="box4"></div>
+
+
+    <script>
+        var myChart = echarts.init(document.querySelector('.box'));
+
+        var option = {
+            color: ['#C048FF'],
+            title: {
+                left: '26',
+                top: '20',
+                text: '累计确诊'
+            },
+            grid: {
+                left: '30',
+                right: '30',
+                bottom: '30',
+                height: '280',
+                containLabel: true
+            },
+            tooltip: {},
+            xAxis: {
+                data: ['本土无症状', '本土确诊']
+            },
+            yAxis: {},
+            series: [{
+                name: '人数',
+                type: 'bar',
+                barWidth: '20%',
+                itemStyle: {
+                    barBorderRadius: [4, 4, 0, 0],
+                },
+                data: [521771 + 8932 + 7084 + 6606 + 5395 + 4722 + 4390 + 4024 + 3961 + 3760 + 3625 + 2780, 51327 + 1249 + 788 + 727 + 274 + 260 + 261 + 245 + 253 + 215 + 322 + 234]
+            }]
+        };
+        myChart.setOption(option);
+        // myChart.setOption(option);
+
+
+
+        var myChart2 = echarts.init(document.querySelector('.box2'));
+        var option2 = {
+            color: ['#C048FF', '#FFA818', '#028EAE'],
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                bottom: '1%',
+                left: 'center'
+            },
+
+            series: [{
+                name: '累计确诊',
+                type: 'pie',
+                radius: ['40%', '60%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                grid: {
+                    left: '10%',
+                    right: '10%',
+                    bottom: '10%',
+                    top: '10%',
+                    containLabel: true
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '20',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [{
+                    value: 521771 + 8932 + 7084 + 6606 + 5395 + 4722 + 4390 + 4024 + 3961 + 3760 + 3625 + 2780,
+                    name: '本土无症状'
+                }, {
+                    value: 51327 + 1249 + 788 + 727 + 274 + 260 + 261 + 245 + 253 + 215 + 322 + 234,
+                    name: '本土确诊'
+                }, {
+                    value: 3 + 7 + 7 + 8 + 11 + 12 + 39 + 51 + 52 + 48 + 47 + 52 + 47 + 38 + 32 + 20 + 16 + 13 + 12 + 13 + 8 + 11 + 6,
+                    name: '累计死亡'
+
+                }]
+            }]
+
+        };
+
+        myChart2.setOption(option2);
+
+        var myChart3 = echarts.init(document.querySelector('.box3'));
+        var option3 = {
+            color: ['#FFA818'],
+            title: {
+                left: '26',
+                top: '20',
+                text: '上海新冠死亡病例'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                top: '22',
+                right: '24',
+                data: ['男']
+            },
+            grid: {
+                left: '30',
+                right: '30',
+                bottom: '30',
+                height: '280',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['04-17', '04-18', '04-19', '04-20', '04-21', '04-22', '04-23', '04-24', '04-25', '04-26', '04-27', '04-28', '04-29', '04-30', '05-01', '05-02', '05-03', '05-04', '05-05', '05-06', '05-07', '05-08', '05-09']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '死亡人数',
+                type: 'line',
+                stack: 'Total',
+                smooth: true,
+                data: [3, 7, 7, 8, 11, 12, 39, 51, 52, 48, 47, 52, 47, 38, 32, 20, 16, 13, 12, 13, 8, 11, 6]
+
+
+            }]
+        };
+        myChart3.setOption(option3);
+
+
+        var myChart4 = echarts.init(document.querySelector('.box4'));
+        var option4 = {
+            color: ['#FFA818', '#C048FF'],
+            title: {
+                left: '26',
+                top: '20',
+                text: '上海3月份每日新增统计表'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                top: '22',
+                right: '24',
+                data: ['本土无症状', '本土确诊']
+            },
+            grid: {
+                left: '3%',
+                right: '3%',
+                bottom: '6%',
+                height: '280',
+                containLabel: true
+            },
+
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                // data: ['04-01', '04-02', '04-03', '04-04', '04-05', '04-06', '04-07', '04-08', '04-09', '04-10', '04-11', '04-12', '04-13', '04-14', '04-15', '04-16', '04-17', '04-18', '04-19', '04-20', '04-21', '04-22', '04-23', '04-24'],
+                data: ['03-01', '03-02', '03-03', '03-04', '03-05', '03-06', '03-07', '03-08', '03-09', '03-10', '03-11', '03-12', '03-13', '03-14', '03-15', '03-16', '03-17', '03-18', '03-19', '03-20', '03-21', '03-22', '03-23', '03-24', '03-25', '03-26', '03-27', '03-28', '03-29', '03-30', '03-31']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '本土确诊',
+                type: 'line',
+                stack: 'Total',
+                data: [1, 3, 2, 3, 0, 3, 4, 3, 4, 11, 5, 1, 41, 9, 5, 8, 57, 8, 17, 24, 31, 4, 4, 29, 38, 45, 50, 96, 326, 355, 358]
+            }, {
+                name: '本土无症状',
+                type: 'line',
+                stack: 'Total',
+                data: [1, 5, 14, 16, 28, 45, 51, 62, 76, 64, 78, 64, 128, 130, 197, 150, 203, 366, 492, 734, 865, 977, 979, 1580, 2231, 2631, 3450, 4381, 5656, 5298, 4144]
+            }]
+        };
+        myChart4.setOption(option4);
+
+        var myChart5 = echarts.init(document.querySelector('.box5'));
+        var option5 = {
+            color: ['#FFA818', '#C048FF'],
+            title: {
+                left: '26',
+                top: '20',
+                text: '上海4月份每日新增统计表'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                top: '22',
+                right: '24',
+                data: ['本土无症状', '本土确诊']
+            },
+            grid: {
+                left: '3%',
+                right: '3%',
+                bottom: '6%',
+                height: '280',
+                containLabel: true
+            },
+
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['04-01', '04-02', '04-03', '04-04', '04-05', '04-06', '04-07', '04-08', '04-09', '04-10', '04-11', '04-12', '04-13', '04-14', '04-15', '04-16', '04-17', '04-18', '04-19', '04-20', '04-21', '04-22', '04-23', '04-24', '04-25', '04-26', '04-27', '04-28', '04-29', '04-30'],
+                // data: ['03-01', '03-02', '03-03', '03-04', '03-05', '03-06', '03-07', '03-08', '03-09', '03-10', '03-11', '03-12', '03-13', '03-14', '03-01', '03-15', '03-16', '03-17', '03-18', '03-19', '03-20', '03-21', '03-22', '03-23', '03-24', '03-19', '03-20', '03-21', '03-22', '03-23', '03-24', '03-25', '03-26', '03-27', '03-28', '03-29', '03-30', '03-31', '04-01', '04-02', '04-03', '04-04', '04-05', '04-06', '04-07', '04-08', '04-09', '04-10', '04-11', '04-12', '04-13', '04-14', '04-15', '04-16', '04-17', '04-18', '04-19', '04-20', '04-21', '04-22', '04-23']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '本土确诊',
+                type: 'line',
+                stack: 'Total',
+
+                data: [260, 438, 425, 268, 311, 322, 824, 1015, 1006, 914, 994, 1189, 2573, 3200, 3590, 3238, 2417, 3084, 2494, 2634, 1931, 2736, 1401, 2472, 1661, 1606, 1292, 5487, 1249, 788],
+                // data: [1, 3, 2, 3, 0, 3, 4, 3, 4, 11, 5, 1, 41, 9, 5, 8, 57, 8, 17, 24, 31, 4, 4, 29, 38, 45, 50, 96, 326, 355, 358, 260, 438, 425, 268, 311, 322, 824, 1015, 1006, 914, 994, 1189, 2573, 3200, 3590, 3238, 2417, 3084, 2494, 2634, 1931, 2736, 1401]
+            }, {
+                name: '本土无症状',
+                type: 'line',
+                stack: 'Total',
+                data: [6051, 7788, 8581, 13086, 16766, 19660, 20398, 22609, 23937, 25173, 22348, 25141, 25146, 19872, 19923, 21582, 19831, 17332, 16407, 15861, 15698, 20634, 19657, 16983, 15319, 11957, 9330, 9545, 8932, 7084]
+            }]
+        };
+        myChart5.setOption(option5);
+
+
+
+
+        var myChart6 = echarts.init(document.querySelector('.box6'));
+        var option6 = {
+            color: ['#FFA818', '#C048FF'],
+            title: {
+                left: '26',
+                top: '20',
+                text: '上海每日新增统计表'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                top: '22',
+                right: '24',
+                data: ['本土无症状', '本土确诊']
+            },
+
+            grid: {
+                left: '3%',
+                right: '3%',
+                bottom: '6%',
+                height: '280',
+                containLabel: true
+            },
+
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['03-01', '03-02', '03-03', '03-04', '03-05', '03-06', '03-07', '03-08', '03-09', '03-10', '03-11', '03-12', '03-13', '03-14', '03-15', '03-16', '03-17', '03-18', '03-19', '03-20', '03-21', '03-22', '03-23', '03-24', '03-25', '03-26', '03-27', '03-28', '03-29', '03-30', '03-31', '04-01', '04-02', '04-03', '04-04', '04-05', '04-06', '04-07', '04-08', '04-09', '04-10', '04-11', '04-12', '04-13', '04-14', '04-15', '04-16', '04-17', '04-18', '04-19', '04-20', '04-21', '04-22', '04-23', '04-24', '04-25', '04-26', '04-27', '04-28', '04-29', '04-30', '05-01', '05-02', '05-03', '05-04', '05-05', '05-06', '05-07', '05-08', '05-09'],
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '本土确诊',
+                type: 'line',
+                stack: 'Total',
+
+                data: [1, 3, 2, 3, 0, 3, 4, 3, 4, 11, 5, 1, 41, 9, 5, 8, 57, 8, 17, 24, 31, 4, 4, 29, 38, 45, 50, 96, 326, 355, 358, 260, 438, 425, 268, 311, 322, 824, 1015, 1006, 914, 994, 1189, 2573, 3200, 3590, 3238, 2417, 3084, 2494, 2634, 1931, 2736, 1401, 2472, 1661, 1606, 1292, 5487, 1249, 788, 727, 274, 260, 261, 245, 253, 215, 322, 234],
+            }, {
+                name: '本土无症状',
+                type: 'line',
+                stack: 'Total',
+                data: [1, 5, 14, 16, 28, 45, 51, 62, 76, 64, 78, 64, 128, 130, 197, 150, 203, 366, 492, 734, 865, 977, 979, 1580, 2231, 2631, 3450, 4381, 5656, 5298, 4144, 6051, 7788, 8581, 13086, 16766, 19660, 20398, 22609, 23937, 25173, 22348, 25141, 25146, 19872, 19923, 21582, 19831, 17332, 16407, 15861, 15698, 20634, 19657, 16983, 15319, 11957, 9330, 9545, 8932, 7084, 6606, 5395, 4722, 4390, 4024, 3961, 3760, 3625, 2780]
+            }]
+        };
+        myChart6.setOption(option6);
+    </script>
+    <script>
+    </script>
+</body>
+
+</html>
