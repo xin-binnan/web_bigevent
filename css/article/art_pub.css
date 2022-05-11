@@ -1,0 +1,35 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.cover-box {
+    display: flex;
+}
+
+.cover-left {
+    width: 400px;
+    height: 280px;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.cover-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-preview {
+    width: 200px;
+    height: 140px;
+    background-color: #ccc;
+    margin-bottom: 20px;
+    overflow: hidden;
+}

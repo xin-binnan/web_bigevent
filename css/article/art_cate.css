@@ -1,0 +1,57 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.layui-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.layui-input-line {
+    border-top: 1px solid #eee;
+    margin-top: 24px;
+}
+
+.layui-input-line .layui-input-block {
+    text-align: right;
+    margin-right: 30px;
+}
+
+#form-add button {
+    margin-top: 12px!important;
+}
+
+#form-edit button {
+    margin-top: 12px!important;
+}
+
+#form-add,
+#form-edit {
+    padding-top: 24px;
+    padding-top: 24px;
+}
+
+#form-edit input {
+    width: 360px;
+}
+
+#form-edit button {
+    margin-top: 20px;
+}
+
+#form-add input {
+    width: 360px;
+}
+
+#form-add button {
+    margin-top: 20px;
+}
